@@ -2,23 +2,24 @@ function FizzBuzz() {
 
 }
 
-FizzBuzz.prototype.game = function (){
-  
-  i = 0
-  while (i <= 100){
-    if(i % 5 == 0 && i % 3 == 0){
-      console.log("FizzBuzz")
-    } 
-    else if(i % 5 == 0){
-      console.log("Buzz")
+FizzBuzz.prototype.game = function(number){
+
+
+    if(this._divisibleBy(15, number)){
+      return("FizzBuzz");
     }
-    else if(i % 3 == 0){
-      console.log("Fizz")
+    else if(this._divisibleBy(5, number)){
+      return("Buzz");
     }
-    else 
-      console.log(i)
-  i++
+    else if(this._divisibleBy(3, number)){
+      return("Fizz");
+    }
+    else {
+      return(number);
   }
 }
 
+FizzBuzz.prototype._divisibleBy = function(divisor, number) {
+  return number % divisor === 0;
 
+}
